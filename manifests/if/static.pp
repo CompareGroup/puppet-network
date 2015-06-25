@@ -66,7 +66,7 @@ define network::if::static (
   $dns2 = undef,
   $domain = undef,
   $linkdelay = '',
-  $vlan = false
+  $vlan = ''
 ) {
   # Validate our data
   if !empty($ipaddress) and ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
