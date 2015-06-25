@@ -1,6 +1,8 @@
 ###
 ### File managed by Puppet
 ###
+### WARNING: MODIFYING THIS FILE WILL RESTART THE NETWORK ON ALL HOSTS! 
+###
 DEVICE=<%= @interface %>
 BOOTPROTO=<%= @bootproto %>
 <% if @macaddress %>HWADDR=<%= @macaddress %>
@@ -8,27 +10,27 @@ BOOTPROTO=<%= @bootproto %>
 ONBOOT=<%= @onboot %>
 HOTPLUG=<%= @onboot %>
 TYPE=Ethernet
-<% if @ipaddress %>IPADDR=<%= @ipaddress %>
+<% if !@ipaddress.empty? %>IPADDR=<%= @ipaddress %>
 <% end -%>
-<% if @netmask %>NETMASK=<%= @netmask %>
+<% if !@netmask.empty? %>NETMASK=<%= @netmask %>
 <% end -%>
-<% if @gateway %>GATEWAY=<%= @gateway %>
+<% if !@gateway.empty? %>GATEWAY=<%= @gateway %>
 <% end -%>
-<% if @mtu %>MTU=<%= @mtu %>
+<% if !@mtu.empty? %>MTU=<%= @mtu %>
 <% end -%>
-<% if @bonding_opts %>BONDING_OPTS="<%= @bonding_opts %>"
+<% if !@bonding_opts.empty? %>BONDING_OPTS="<%= @bonding_opts %>"
 <% end -%>
-<% if @dhcp_hostname %>DHCP_HOSTNAME="<%= @dhcp_hostname %>"
+<% if !@dhcp_hostname.empty? %>DHCP_HOSTNAME="<%= @dhcp_hostname %>"
 <% end -%>
-<% if @ethtool_opts %>ETHTOOL_OPTS="<%= @ethtool_opts %>"
+<% if !@ethtool_opts.empty? %>ETHTOOL_OPTS="<%= @ethtool_opts %>"
 <% end -%>
 <% if !@peerdns %>PEERDNS=no
 <% else %>PEERDNS=yes
-<% if @dns1_real %>DNS1=<%= @dns1_real %>
+<% if !@dns1_real.empty? %>DNS1=<%= @dns1_real %>
 <% end -%>
-<% if @dns2_real %>DNS2=<%= @dns2_real %>
+<% if !@dns2_real.empty? %>DNS2=<%= @dns2_real %>
 <% end -%>
-<% if @domain %>DOMAIN="<%= @domain %>"
+<% if !@domain.empty? %>DOMAIN="<%= @domain %>"
 <% end -%>
 <% end -%>
 <% if @userctl %>USERCTL=yes
@@ -38,18 +40,18 @@ IPV6INIT=yes
 <% if !@ipv6autoconf %>IPV6_AUTOCONF=no
 <% else %>IPV6_AUTOCONF=yes
 <% end -%>
-<% if @ipv6address %>IPV6ADDR=<%= @ipv6address %>
+<% if !@ipv6address.empty? %>IPV6ADDR=<%= @ipv6address %>
 <% end -%>
-<% if @ipv6gateway %>IPV6_DEFAULTGW=<%= @ipv6gateway %>
+<% if !@ipv6gateway.empty? %>IPV6_DEFAULTGW=<%= @ipv6gateway %>
 <% end -%>
 <% if !@ipv6peerdns %>IPV6_PEERDNS=no
 <% else %>IPV6_PEERDNS=yes
 <% end -%>
 <% end -%>
-<% if @bridge %>BRIDGE=<%= @bridge %>
+<% if !@bridge.empty? %>BRIDGE=<%= @bridge %>
 <% end -%>
-<% if @linkdelay %>LINKDELAY=<%= @linkdelay %>
+<% if !@linkdelay.empty? %>LINKDELAY=<%= @linkdelay %>
 <% end -%>
-<% if @vlan %>VLAN=<%= @vlan %>
+<% if !@vlan.empty? %>VLAN=<%= @vlan %>
 <% end -%>
 NM_CONTROLLED=no

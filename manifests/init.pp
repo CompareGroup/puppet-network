@@ -105,9 +105,9 @@ define network_if_base (
   $bootproto = 'none',
   $userctl = false,
   $mtu = undef,
-  $dhcp_hostname = undef,
+  $dhcp_hostname = '',
   $ethtool_opts = '',
-  $bonding_opts = undef,
+  $bonding_opts = '',
   $isalias = false,
   $peerdns = false,
   $ipv6peerdns = false,
@@ -116,7 +116,7 @@ define network_if_base (
   $domain = '',
   $bridge = '',
   $linkdelay = '',
-  $vlan = false,
+  $vlan = '',
 ) {
   # Validate our booleans
   validate_bool($userctl)
@@ -170,6 +170,7 @@ define network_if_base (
     group   => 'root',
     path    => "/etc/sysconfig/network-scripts/ifcfg-${interface}",
     content => $iftemplate,
-    notify  => Service['network'],
+    # Disabling notify to prevent all servers to restart network
+    #notify  => Service['network'],
   }
 } # define network_if_base
