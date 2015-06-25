@@ -108,6 +108,6 @@ define network::if::static (
     dns2         => $dns2,
     domain       => $domain,
     linkdelay    => $linkdelay,
-    vlan				 => $vlan,
+    vlan         => $vlan,
   }
 } # define network::if::static
