@@ -1,9 +1,15 @@
 ###
-### File managed by Puppet
+###------------------------------------------------------------------------------#
+### This file is under Puppet control                                            #
+###------------------------------------------------------------------------------#
+###
+###
+###              WARNING
+###
+### MODIFYING THIS FILE WILL RESTART THE NETWORK ON ALL HOSTS!
+###
 ###
 NETWORKING=yes
-IPV6_AUTOCONF=no
-IPV6_AUTOTUNNEL=no
 <% if !@ipv6networking %>NETWORKING_IPV6=no
 <% else %>NETWORKING_IPV6=yes
 <% if @ipv6gateway %>IPV6_DEFAULTGW=<%= @ipv6gateway %>
@@ -11,6 +17,8 @@ IPV6_AUTOTUNNEL=no
 <% if @ipv6defaultdev %>IPV6_DEFAULTDEV=<%= @ipv6defaultdev %>
 <% end -%>
 <% end -%>
+IPV6_AUTOCONF=no
+IPV6_AUTOTUNNEL=no
 <% if @hostname %>HOSTNAME=<%= @hostname %>
 <% else %>HOSTNAME=<%= scope.lookupvar('::fqdn') %>
 <% end -%>
