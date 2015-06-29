@@ -88,6 +88,10 @@ class network::global (
   validate_bool($ipv6networking)
 
   include '::network'
+  $allowNotify = hiera("networkallowrestart::${hostname}", 'NO restart' ) ? {
+        'restart' => Service['network'],
+        default   => undef
+  }
 
   file { 'network.sysconfig':
     ensure  => 'present',
@@ -96,6 +100,6 @@ class network::global (
     group   => 'root',
     path    => '/etc/sysconfig/network',
     content => template('network/network.erb'),
-    notify  => Service['network'],
+    notify  => $allowNotify,
   }
 } # class global

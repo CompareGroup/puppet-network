@@ -162,7 +162,11 @@ define network_if_base (
     }
     $iftemplate = template('network/ifcfg-eth.erb')
   }
-
+	
+	$allowNotify = hiera("networkallowrestart::${hostname}", 'NO restart' ) ? {
+        'restart' => Service['network'],
+        default   => undef
+  }
   file { "ifcfg-${interface}":
     ensure  => 'present',
     mode    => '0644',
@@ -170,7 +174,6 @@ define network_if_base (
     group   => 'root',
     path    => "/etc/sysconfig/network-scripts/ifcfg-${interface}",
     content => $iftemplate,
-    # Disabling notify to prevent all servers to restart network
-    #notify  => Service['network'],
+    notify  => $allowNotify,
   }
 } # define network_if_base

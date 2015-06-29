@@ -44,6 +44,10 @@ define network::bond::slave (
   include '::network'
 
   $interface = $name
+  $allowNotify = hiera("networkallowrestart::${hostname}", 'NO restart' ) ? {
+        'restart' => Service['network'],
+        default   => undef
+  }
 
   file { "ifcfg-${interface}":
     ensure  => 'present',
@@ -53,6 +57,7 @@ define network::bond::slave (
     path    => "/etc/sysconfig/network-scripts/ifcfg-${interface}",
     content => template('network/ifcfg-bond.erb'),
     before  => File["ifcfg-${master}"],
-    notify  => Service['network'],
+    notify =>  $allowNotify,
   }
+
 } # define network::bond::slave
