@@ -127,7 +127,7 @@ define network_if_base (
 #  validate_bool($ipv6peerdns)
   # Validate our regular expressions
   $states = [ '^up$', '^down$' ]
-  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
+#  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
 
   include '::network'
 

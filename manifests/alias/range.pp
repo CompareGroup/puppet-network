@@ -47,7 +47,7 @@ define network::alias::range (
 #  validate_bool($noaliasrouting)
   # Validate our regular expressions
   $states = [ '^up$', '^down$', '^absent$' ]
-  validate_re($ensure, $states, '$ensure must be either "up", "down", or "absent".')
+#  validate_re($ensure, $states, '$ensure must be either "up", "down", or "absent".')
 
   include '::network'
 

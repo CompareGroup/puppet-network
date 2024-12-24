@@ -49,7 +49,7 @@ define network::if::dynamic (
 ) {
   # Validate our regular expressions
   $states = [ '^up$', '^down$' ]
-  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
+#  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
 
   if ! is_mac_address($macaddress) {
     # Strip off any tailing VLAN (ie eth5.90 -> eth5).

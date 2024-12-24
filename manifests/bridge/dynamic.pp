@@ -44,7 +44,7 @@ define network::bridge::dynamic (
 ) {
   # Validate our regular expressions
   $states = [ '^up$', '^down$' ]
-  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
+#  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
   # Validate booleans
 #  validate_bool($userctl)
 #  validate_bool($stp)

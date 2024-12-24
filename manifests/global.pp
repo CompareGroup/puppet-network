@@ -82,7 +82,7 @@ class network::global (
   # Validate our regular expressions
   if $vlan {
     $states = [ '^yes$', '^no$' ]
-    validate_re($vlan, $states, '$vlan must be either "yes" or "no".')
+#    validate_re($vlan, $states, '$vlan must be either "yes" or "no".')
   }
 
 #  validate_bool($ipv6networking)

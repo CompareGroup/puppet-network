@@ -54,7 +54,7 @@ define network::bond::static (
 ) {
   # Validate our regular expressions
   $states = [ '^up$', '^down$' ]
-  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
+#  validate_re($ensure, $states, '$ensure must be either "up" or "down".')
   # Validate our data
 #  if ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
 #  if $ipv6address {
