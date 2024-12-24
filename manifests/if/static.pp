@@ -70,16 +70,8 @@ define network::if::static (
 ) {
   # Validate our data
 #  if !empty($ipaddress) and ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
-  if !empty($ipaddress) {
-    unless $ipaddress =~ Stdlib::Compat::Ipv4 {
-      fail("$ipaddress} is not an IP address,")
-    }
-  }
   if $ipv6address {
 #    if ! is_ip_address($ipv6address) { fail("${ipv6address} is not an IPv6 address.") }
-    unless $ipv6address =~ Stdlib::Compat::Ipv6 {
-      fail("${ipv6address} is not an IPv6 address.")
-    }
   }
 
   if ! is_mac_address($macaddress) {

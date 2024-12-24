@@ -49,7 +49,7 @@
 #
 define network::bridge::static (
   $ensure,
-  Stdlib::Compat::Ipv4 $ipaddress,
+  $ipaddress,
   $netmask,
   $gateway = undef,
   $ipv6address = undef,
@@ -73,9 +73,6 @@ define network::bridge::static (
 #  if ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
   if $ipv6address {
 #    if ! is_ip_address($ipv6address) { fail("${ipv6address} is not an IPv6 address.") }
-     unless $ipv6address =~ Stdlib::Compat::Ipv6 {
-       fail("${ipv6address} is not an IPv6 address.")
-     }
   }
   # Validate booleans
   validate_bool($userctl)

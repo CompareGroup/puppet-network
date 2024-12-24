@@ -35,8 +35,8 @@
 #
 define network::alias::range (
   $ensure,
-  Stdlib::Compat::Ipv4 $ipaddress_start,
-  Stdlib::Compat::Ipv4 $ipaddress_end,
+  $ipaddress_start,
+  $ipaddress_end,
   $clonenum_start,
   $noaliasrouting = false
 ) {

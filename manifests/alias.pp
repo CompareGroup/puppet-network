@@ -33,7 +33,7 @@
 #
 define network::alias (
   $ensure,
-  Stdlib::Compat::Ipv4 $ipaddress,
+  $ipaddress,
   $netmask,
   $gateway = undef,
   $ipv6address = undef,
