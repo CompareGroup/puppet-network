@@ -71,10 +71,16 @@ class network::global (
 ) {
   # Validate our data
   if $gateway {
-    if ! is_ip_address($gateway) { fail("${gateway} is not an IP address.") }
+#    if ! is_ip_address($gateway) { fail("${gateway} is not an IP address.") }
+    unless $gateway =~ Stdlib::Compat::Ipv4 {
+      fail("${gateway} is not an IP address.")
+    }
   }
   if $ipv6gateway {
-    if ! is_ip_address($ipv6gateway) { fail("${ipv6gateway} is not an IPv6 address.") }
+#    if ! is_ip_address($ipv6gateway) { fail("${ipv6gateway} is not an IPv6 address.") }
+    unless $ipv6gateway =~ Stdlib::Compat::Ipv6 {
+      fail("${ipv6gateway} is not an IPv6 address.")
+    }
   }
 
   validate_bool($ipv6networking)

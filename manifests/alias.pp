@@ -33,7 +33,7 @@
 #
 define network::alias (
   $ensure,
-  $ipaddress,
+  Stdlib::Compat::Ipv4 $ipaddress,
   $netmask,
   $gateway = undef,
   $ipv6address = undef,
@@ -41,7 +41,7 @@ define network::alias (
   $userctl = false
 ) {
   # Validate our data
-  if ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
+#  if ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
   # Validate our booleans
   validate_bool($userctl)
 

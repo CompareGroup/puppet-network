@@ -35,14 +35,14 @@
 #
 define network::alias::range (
   $ensure,
-  $ipaddress_start,
-  $ipaddress_end,
+  Stdlib::Compat::Ipv4 $ipaddress_start,
+  Stdlib::Compat::Ipv4 $ipaddress_end,
   $clonenum_start,
   $noaliasrouting = false
 ) {
   # Validate our data
-  if ! is_ip_address($ipaddress_start) { fail("${ipaddress_start} is not an IP address.") }
-  if ! is_ip_address($ipaddress_end) { fail("${ipaddress_end} is not an IP address.") }
+#  if ! is_ip_address($ipaddress_start) { fail("${ipaddress_start} is not an IP address.") }
+#  if ! is_ip_address($ipaddress_end) { fail("${ipaddress_end} is not an IP address.") }
   # Validate our booleans
   validate_bool($noaliasrouting)
   # Validate our regular expressions

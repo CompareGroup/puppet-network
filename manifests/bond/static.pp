@@ -37,7 +37,7 @@
 #
 define network::bond::static (
   $ensure,
-  $ipaddress,
+  Stdlib::Compat::Ipv4 $ipaddress,
   $netmask,
   $gateway = undef,
   $mtu = undef,
@@ -56,9 +56,12 @@ define network::bond::static (
   $states = [ '^up$', '^down$' ]
   validate_re($ensure, $states, '$ensure must be either "up" or "down".')
   # Validate our data
-  if ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
+#  if ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
   if $ipv6address {
-    if ! is_ip_address($ipv6address) { fail("${ipv6address} is not an IPv6 address.") }
+#    if ! is_ip_address($ipv6address) { fail("${ipv6address} is not an IPv6 address.") }
+    unless $ipv6address =~ Stdlib::Compat::Ipv6 {
+      fail("${ipv6address} is not an IPv6 address.")
+    }
   }
   # Validate booleans
   validate_bool($ipv6init)
