@@ -78,6 +78,7 @@ class network::global (
 #  }
 
 #  validate_bool($ipv6networking)
+  validate_legacy('Bool', 'validate_bool', $ipv6networking)
 
   # Validate our regular expressions
   if $vlan {
