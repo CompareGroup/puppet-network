@@ -61,8 +61,8 @@ define network::bond::static (
 #    if ! is_ip_address($ipv6address) { fail("${ipv6address} is not an IPv6 address.") }
 #  }
   # Validate booleans
-  validate_bool($ipv6init)
-  validate_bool($ipv6peerdns)
+#  validate_bool($ipv6init)
+#  validate_bool($ipv6peerdns)
 
 
   network_if_base { $title:

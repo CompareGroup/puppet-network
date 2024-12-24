@@ -77,7 +77,7 @@ class network::global (
 #    if ! is_ip_address($ipv6gateway) { fail("${ipv6gateway} is not an IPv6 address.") }
 #  }
 
-  validate_bool($ipv6networking)
+#  validate_bool($ipv6networking)
 
   # Validate our regular expressions
   if $vlan {
@@ -85,7 +85,7 @@ class network::global (
     validate_re($vlan, $states, '$vlan must be either "yes" or "no".')
   }
 
-  validate_bool($ipv6networking)
+#  validate_bool($ipv6networking)
 
   include '::network'
   $allowNotify = hiera("networkallowrestart::${hostname}", 'NO restart' ) ? {

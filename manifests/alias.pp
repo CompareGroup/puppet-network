@@ -43,7 +43,7 @@ define network::alias (
   # Validate our data
 #  if ! is_ip_address($ipaddress) { fail("${ipaddress} is not an IP address.") }
   # Validate our booleans
-  validate_bool($userctl)
+#  validate_bool($userctl)
 
   network_if_base { $title:
     ensure       => $ensure,

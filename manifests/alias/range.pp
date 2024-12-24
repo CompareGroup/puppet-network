@@ -44,7 +44,7 @@ define network::alias::range (
 #  if ! is_ip_address($ipaddress_start) { fail("${ipaddress_start} is not an IP address.") }
 #  if ! is_ip_address($ipaddress_end) { fail("${ipaddress_end} is not an IP address.") }
   # Validate our booleans
-  validate_bool($noaliasrouting)
+#  validate_bool($noaliasrouting)
   # Validate our regular expressions
   $states = [ '^up$', '^down$', '^absent$' ]
   validate_re($ensure, $states, '$ensure must be either "up", "down", or "absent".')

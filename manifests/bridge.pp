@@ -43,9 +43,9 @@ define network::bridge (
   $states = [ '^up$', '^down$' ]
   validate_re($ensure, $states, '$ensure must be either "up" or "down".')
   # Validate booleans
-  validate_bool($userctl)
-  validate_bool($stp)
-  validate_bool($ipv6init)
+#  validate_bool($userctl)
+#  validate_bool($stp)
+#  validate_bool($ipv6init)
 
   include '::network'
 

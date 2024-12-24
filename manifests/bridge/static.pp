@@ -75,10 +75,10 @@ define network::bridge::static (
 #    if ! is_ip_address($ipv6address) { fail("${ipv6address} is not an IPv6 address.") }
 #  }
   # Validate booleans
-  validate_bool($userctl)
-  validate_bool($stp)
-  validate_bool($ipv6init)
-  validate_bool($ipv6peerdns)
+#  validate_bool($userctl)
+#  validate_bool($stp)
+#  validate_bool($ipv6init)
+#  validate_bool($ipv6peerdns)
 
   include '::network'
 

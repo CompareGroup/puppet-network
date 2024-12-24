@@ -119,12 +119,12 @@ define network_if_base (
   $vlan = '',
 ) {
   # Validate our booleans
-  validate_bool($userctl)
-  validate_bool($isalias)
-  validate_bool($peerdns)
-  validate_bool($ipv6init)
-  validate_bool($ipv6autoconf)
-  validate_bool($ipv6peerdns)
+#  validate_bool($userctl)
+#  validate_bool($isalias)
+#  validate_bool($peerdns)
+#  validate_bool($ipv6init)
+#  validate_bool($ipv6autoconf)
+#  validate_bool($ipv6peerdns)
   # Validate our regular expressions
   $states = [ '^up$', '^down$' ]
   validate_re($ensure, $states, '$ensure must be either "up" or "down".')

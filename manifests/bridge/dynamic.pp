@@ -46,8 +46,8 @@ define network::bridge::dynamic (
   $states = [ '^up$', '^down$' ]
   validate_re($ensure, $states, '$ensure must be either "up" or "down".')
   # Validate booleans
-  validate_bool($userctl)
-  validate_bool($stp)
+#  validate_bool($userctl)
+#  validate_bool($stp)
 
   include '::network'
 

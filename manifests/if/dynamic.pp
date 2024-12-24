@@ -59,7 +59,7 @@ define network::if::dynamic (
     $macaddy = $macaddress
   }
   # Validate booleans
-  validate_bool($userctl)
+#  validate_bool($userctl)
 
   network_if_base { $title:
     ensure        => $ensure,

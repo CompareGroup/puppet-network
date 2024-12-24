@@ -82,11 +82,11 @@ define network::if::static (
     $macaddy = $macaddress
   }
   # Validate booleans
-  validate_bool($userctl)
-  validate_bool($ipv6init)
-  validate_bool($ipv6autoconf)
-  validate_bool($peerdns)
-  validate_bool($ipv6peerdns)
+#  validate_bool($userctl)
+#  validate_bool($ipv6init)
+#  validate_bool($ipv6autoconf)
+#  validate_bool($peerdns)
+#  validate_bool($ipv6peerdns)
 
   network_if_base { $title:
     ensure       => $ensure,
