@@ -62,7 +62,7 @@ define network::bond::bridge (
   # /etc/modprobe.conf.
   case $::operatingsystem {
     /^(RedHat|CentOS|OEL|OracleLinux|SLC|Scientific)$/: {
-      case $::operatingsystemrelease {
+      case $facts['os']['release']['major'] {
         /^[45]/: {
           augeas { "modprobe.conf_${title}":
             context => '/files/etc/modprobe.conf',
@@ -78,7 +78,7 @@ define network::bond::bridge (
       }
     }
     'Fedora': {
-      case $::operatingsystemrelease {
+      case $facts['os']['release']['major'] {
         /^(1|2|3|4|5|6|7|8|9|10|11)$/: {
           augeas { "modprobe.conf_${title}":
             context => '/files/etc/modprobe.conf',
