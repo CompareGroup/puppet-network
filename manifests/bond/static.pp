@@ -87,7 +87,7 @@ define network::bond::static (
 
   # Only install "alias bondN bonding" on old OSs that support
   # /etc/modprobe.conf.
-  case $::operatingsystem {
+  case $facts['os']['family'] {
     /^(RedHat|CentOS|OEL|OracleLinux|SLC|Scientific)$/: {
       case $facts['os']['release']['major'] {
         /^[45]/: {
